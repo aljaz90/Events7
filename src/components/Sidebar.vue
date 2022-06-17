@@ -1,5 +1,6 @@
 <script setup>
-    import AlertIcon from 'vue-ionicons/dist/ios-home.vue'
+    import HomeIcon from 'vue-ionicons/dist/ios-home.vue'
+    import ListIcon from 'vue-ionicons/dist/ios-list.vue'
 </script>
 <template>
   <div class="sidebar">
@@ -10,16 +11,12 @@
       </div>
       <div class="sidebar--section">
           <div class="sidebar--section--item sidebar--section--item-link sidebar--section--item-link-selected">
-            <AlertIcon />
+            <HomeIcon />
             Dashboard
           </div>
           <div class="sidebar--section--item sidebar--section--item-link">
-            <AlertIcon />
-            Dashboard
-          </div>
-          <div class="sidebar--section--item sidebar--section--item-link">
-            <AlertIcon />
-            Dashboard
+            <ListIcon />
+            Event trackers
           </div>
       </div>
       <div class="sidebar--section">

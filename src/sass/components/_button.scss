@@ -1,0 +1,19 @@
+.btn {
+    font-size: 1.8rem;
+    font-weight: 600;
+    border: 1px solid $color-grey;
+    user-select: none;
+    padding: 1rem 1.75rem;
+    border-radius: 8px;
+    background-color: $color-primary;
+    color: $color-white;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+        background-color: $color-primary-dark;
+    }
+    &:active {
+        background-color: $color-primary-dark-2;
+    }
+}
