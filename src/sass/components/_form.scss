@@ -1,0 +1,89 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    &--input_group {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        &-submit {
+            align-items: flex-start;
+        }
+
+        label {
+            font-family: $font-primary;
+            font-size: 1.6rem;
+            font-weight: 600;
+            user-select: none;
+            opacity: 0.7;
+            margin-left: 0.25rem;
+        }
+
+        input[type=text], input[type=number] {
+            font-family: $font-primary;
+            font-size: 1.9rem;
+            padding: 0.25rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            background-color: $color-white-2;
+            transition: all .3s;
+            
+            &:hover {
+                background-color: $color-grey;
+            }
+            &:focus {
+                outline: none;
+                border: 2px solid $color-grey-2;
+            }
+        }
+        select {
+            font-family: $font-primary;
+            font-size: 1.9rem;
+            padding: 0.25rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            background-color: $color-white-2;
+            transition: all .3s;
+            
+            &:hover {
+                background-color: $color-grey;
+            }
+
+            option {
+                font-size: 1.6rem;
+            }
+        }
+        textarea {
+            font-family: $font-primary;
+            font-size: 1.6rem;
+            padding: 0.25rem 1rem;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            background-color: $color-white-2;
+            transition: border .3s, background .3s;
+            align-self: stretch;
+            height: 10rem;
+            resize: none;
+
+            &:hover {
+                background-color: $color-grey;
+            }
+            &:focus {
+                outline: none;
+                border: 2px solid $color-grey-2;
+            }
+        }
+        input[type=submit] {
+            margin-top: 1rem;
+        }
+    }
+}

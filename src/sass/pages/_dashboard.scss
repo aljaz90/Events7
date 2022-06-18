@@ -5,6 +5,7 @@
         margin: 1rem;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         position: relative;
+        padding-top: 7rem;
 
         &--title {
             position: absolute;
@@ -24,6 +25,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-top: 3rem;
 
         &--list {
             display: flex;
@@ -81,5 +83,11 @@
     &--event_creation {
         grid-column: full-start / 6;
         grid-row: 3 / full-end;
+        display: flex;
+        justify-content: center;
+
+        &--form {
+
+        }
     }
 } 
