@@ -1,4 +1,14 @@
 <script setup>
+    import Select from './Select.vue';
+    
+    const props = defineProps({
+        events: {
+            type: Array,
+            required: true
+        }
+    });
+
+    const relatedEventOptions = props.events.map(el => ({ key: el.id, value: el.name }));
 </script>
 <template>
     <div class="dashboard--event_creation">
@@ -33,12 +43,11 @@
             </div>
             <div class="form--input_group">
                 <label for="type">Related events</label>
-                <select name="type" id="type">
-                    <option value="crosspromo">Crosspromo</option>
-                    <option value="liveops">Liveops</option>
-                    <option value="app">App</option>
-                    <option value="ads">Ads</option>
-                </select>
+                <Select 
+                    text="Select related events"
+                    :on-select="NULL"
+                    :options="relatedEventOptions"
+                />
             </div>
             <div class="form--input_group form--input_group-submit">
                 <input type="submit" class="btn" value="Create">

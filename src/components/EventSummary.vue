@@ -1,6 +1,16 @@
 <script setup>
     import CheckmarkIcon from 'vue-ionicons/dist/ios-checkmark.vue';
     import OptionsIcon from 'vue-ionicons/dist/ios-options.vue';
+
+    const props = defineProps({
+        events: {
+            type: Array,
+            required: true
+        }
+    });
+
+    const activeEvents = props.events.length;
+    const typesOfEvents = new Set(props.events.map(el => el.type)).size;
 </script>
 <template>
     <div class="dashboard--event_summary">
@@ -14,7 +24,7 @@
                     Active events: 
                 </span>
                 <span class="dashboard--event_summary--list--item--value">
-                    5
+                    {{ activeEvents }}
                 </span>
             </div>
             <div class="dashboard--event_summary--list--item">
@@ -23,7 +33,7 @@
                     Types of events: 
                 </span>
                 <span class="dashboard--event_summary--list--item--value">
-                    3
+                    {{ typesOfEvents }}
                 </span>
             </div>
         </div>

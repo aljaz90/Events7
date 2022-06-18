@@ -13,7 +13,7 @@
 
 <template>
     <Layout />
-    <EventSummary />
-    <EventCreation />
+    <EventSummary :events="events" />
+    <EventCreation :events="events" />
     <EventList :events="events" />
 </template>
