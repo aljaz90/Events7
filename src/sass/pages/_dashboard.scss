@@ -66,10 +66,73 @@
     &--event_list {
         grid-column: 6 / full-end;
         grid-row: full-start / full-end;
+        padding: 8rem 10rem 15rem 10rem;
 
         &--list {
+            display: flex;
+            flex-direction: column;
+
             &--item {
-    
+                display: flex;
+                font-size: 1.8rem;
+                background-color: $color-white-2;
+                border-radius: 4px;
+                padding: 3rem 4rem 1rem 2rem;
+                cursor: pointer;
+                transition: all .3s;
+                justify-content: space-between;
+
+                &:not(:last-child) {
+                    margin-bottom: 0.5rem;
+                }
+
+                &:hover {
+                    background-color: $color-primary;
+                    color: $color-white;
+                    transform: translateX(-1rem);
+                }
+
+                &--group {
+                    display: flex;
+                }
+
+                &--id, &--type, &--name, &--priority {
+                    position: relative;
+
+                    &--label {
+                        user-select: none;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transform: translate(0, -100%);
+                        font-family: $font-heading;
+                        font-weight: 700;
+                        opacity: 0.7;
+                        font-size: 1.3rem;
+                        text-transform: uppercase;
+                    }
+                }
+
+                &--id {
+                    font-weight: 700;
+                    margin-right: 4rem;
+                }
+                &--type {
+                    font-weight: 700;
+                    margin-right: 8rem;
+                }
+                &--name {
+                    font-family: $font-heading;
+                }
+                &--priority {
+                    font-family: $font-heading;
+                    font-weight: 700;
+
+                    &--label {
+                        left: 50%;
+                        transform: translate(-50%, -100%);
+                    }
+                }
             }            
         }
 

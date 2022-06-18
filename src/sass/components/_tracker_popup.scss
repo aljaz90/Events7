@@ -1,0 +1,23 @@
+.tracker_popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.6);
+    z-index: 100;
+    cursor: pointer;
+
+    &--popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        width: 60rem;
+        height: 70rem;
+        background-color: $color-white;
+        z-index: 101;
+        cursor: default;
+    }
+}
