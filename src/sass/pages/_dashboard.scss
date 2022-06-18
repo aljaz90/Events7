@@ -123,6 +123,7 @@
                 }
                 &--name {
                     font-family: $font-heading;
+                    font-weight: 400;
                 }
                 &--priority {
                     font-family: $font-heading;
@@ -148,9 +149,5 @@
         grid-row: 3 / full-end;
         display: flex;
         justify-content: center;
-
-        &--form {
-
-        }
     }
 } 

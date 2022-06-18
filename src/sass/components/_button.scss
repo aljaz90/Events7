@@ -16,4 +16,46 @@
     &:active {
         background-color: $color-primary-dark-2;
     }
+
+    &-success {
+        background-color: $color-success;
+
+        &:hover {
+            background-color: darken($color-success, 5%);
+        }
+        &:active {
+            background-color: darken($color-success, 10%);
+        }
+    }
+    &-error {
+        background-color: $color-error;
+
+        &:hover {
+            background-color: darken($color-error, 5%);
+        }
+        &:active {
+            background-color: darken($color-error, 10%);
+        }
+    }
+    &-warning {
+        background-color: $color-warning;
+
+        &:hover {
+            background-color: darken($color-warning, 5%);
+        }
+        &:active {
+            background-color: darken($color-warning, 10%);
+        }
+    }
+    &-secondary {
+        background-color: $color-grey;
+        color: #000;
+
+        &:hover {
+            background-color: darken($color-grey, 5%);
+        }
+        &:active {
+            background-color: darken($color-grey, 10%);
+        }
+    }
 }

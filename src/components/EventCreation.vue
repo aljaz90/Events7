@@ -3,7 +3,7 @@
 <template>
     <div class="dashboard--event_creation">
         <div class="dashboard--event_creation--title">
-            Create an event tracker
+            Create an event
         </div>
         <form class="form dashboard--event_creation--form" action="#">
             <div class="form--input_group">

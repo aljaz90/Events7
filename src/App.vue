@@ -4,10 +4,10 @@
     import EventList from './components/EventList.vue';
     import EventSummary from './components/EventSummary.vue';
 
-    const trackers = [
-        { id: 1, type: "app", name: "click-event", description: "when the user clicks the button the event should be triggered", priority: 0, relatedEvents: [1, 2] },
-        { id: 1, type: "app", name: "click-event", description: "when the user clicks the button the event should be triggered", priority: 0, relatedEvents: [1, 2] },
-        { id: 1, type: "app", name: "click-event", description: "when the user clicks the button the event should be triggered", priority: 0, relatedEvents: [1, 2] }
+    const events = [
+        { id: 1, type: "app", name: "click-event", description: "when the user clicks the button the event should be triggered", priority: 0, relatedEvents: [2, 3] },
+        { id: 2, type: "app", name: "click-event", description: "when the user clicks the button the event should be triggered", priority: 2, relatedEvents: [] },
+        { id: 3, type: "app", name: "click-event", description: "when the user clicks the button the event should be triggered", priority: 5, relatedEvents: [1] }
     ];
 </script>
 
@@ -15,5 +15,5 @@
     <Layout />
     <EventSummary />
     <EventCreation />
-    <EventList :trackers="trackers" />
+    <EventList :events="events" />
 </template>

@@ -11,7 +11,7 @@
             <div class="dashboard--event_summary--list--item dashboard--event_summary--list--item-active_trackers">
                 <CheckmarkIcon />
                 <span class="dashboard--event_summary--list--item--key">
-                    Active trackers: 
+                    Active events: 
                 </span>
                 <span class="dashboard--event_summary--list--item--value">
                     5
@@ -20,7 +20,7 @@
             <div class="dashboard--event_summary--list--item">
                 <OptionsIcon />
                 <span class="dashboard--event_summary--list--item--key">
-                    Types of trackers: 
+                    Types of events: 
                 </span>
                 <span class="dashboard--event_summary--list--item--value">
                     3
