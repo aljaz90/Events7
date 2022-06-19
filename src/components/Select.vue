@@ -14,10 +14,13 @@
         options: {
             type: Array,
             required: true
+        },
+        defaultOptions: {
+            type: Array
         }
     });
 
-    const selectedItems = ref([]);
+    const selectedItems = ref(props.defaultOptions || []);
     const listOpen = ref(false);
 
     const toggleList = () => listOpen.value = !listOpen.value;

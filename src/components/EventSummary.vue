@@ -1,4 +1,5 @@
 <script setup>
+    import { computed } from '@vue/reactivity';
     import CheckmarkIcon from 'vue-ionicons/dist/ios-checkmark.vue';
     import OptionsIcon from 'vue-ionicons/dist/ios-options.vue';
 
@@ -9,8 +10,8 @@
         }
     });
 
-    const activeEvents = props.events.length;
-    const typesOfEvents = new Set(props.events.map(el => el.type)).size;
+    const activeEvents = computed(() => props.events.length);
+    const typesOfEvents = computed(() => new Set(props.events.map(el => el.type)).size);
 </script>
 <template>
     <div class="dashboard--event_summary">

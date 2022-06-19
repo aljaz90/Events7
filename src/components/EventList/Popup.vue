@@ -1,11 +1,11 @@
 <script setup>
-    defineProps({
+import EventForm from '../EventCreation/EventForm.vue';
+    const props = defineProps({
         editMode: {
             type: Boolean,
             required: true
         },
         selectedEvent: {
-            type: Array,
             required: true
         },
         unselectEvent: {
@@ -28,20 +28,40 @@
             type: Function,
             required: true
         },
+        events: {
+            type: Array,
+            required: true
+        }
     });
+
+    const relatedEventOptions = props.events.map(el => ({ key: el.id, value: el.name }));
+    const defaultFormValues = {
+        ...props.selectedEvent,
+        relatedEvents: props.selectedEvent.relatedEvents.map(el => el.id)
+    }
+    const submitBtnOptions = {
+        class: "btn btn-success",
+        value: "Save"
+    }
 </script>
 <template>
-    <div class="tracker_popup" @click="unselectEvent" v-if="selectedEvent">
-        <div class="tracker_popup--popup" @click="handlePopupClick" v-if="selectedEvent">
-            <div class="tracker_popup--popup--tracker">
+    <div class="tracker_popup" @click="unselectEvent">
+        <div class="tracker_popup--popup" @click="handlePopupClick">
+            <EventForm 
+                v-if="editMode" 
+                :relatedEventOptions="relatedEventOptions"
+                :onSubmit="saveEvent"
+                :default-values="defaultFormValues"
+                :submit-button="submitBtnOptions"
+            />
+            <div v-else class="tracker_popup--popup--tracker">
                 <div class="tracker_popup--popup--tracker--header">
                     <span class="tracker_popup--popup--tracker--header--group">
                         <div class="tracker_popup--popup--tracker--header--id">
                             <span class="tracker_popup--popup--tracker--header--id--label">
                                 Id
                             </span>
-                            <input v-if="editMode" :value="selectedEvent.id" />
-                            <span v-else>
+                            <span>
                                 {{ selectedEvent.id }}
                             </span>
                         </div>
@@ -108,9 +128,6 @@
             <div class="tracker_popup--popup--footer">
                 <div v-if="!editMode" @click="editEvent" class="btn btn-warning tracker_popup--popup--footer--action">
                     Edit
-                </div>
-                <div v-if="editMode" @click="saveEvent" class="btn btn-success tracker_popup--popup--footer--action">
-                    Save
                 </div>
                 <div @click="deleteEvent" class="btn btn-error tracker_popup--popup--footer--action">
                     Delete

@@ -68,6 +68,13 @@
         grid-row: full-start / full-end;
         padding: 8rem 10rem 15rem 10rem;
 
+        &-events {
+            grid-column: center-start / center-end;
+            max-height: calc(100vh - 9rem);
+            overflow-y: auto;
+            padding-bottom: 2rem;
+        }
+
         &--list {
             display: flex;
             flex-direction: column;
@@ -116,10 +123,12 @@
                 &--id {
                     font-weight: 700;
                     margin-right: 4rem;
+                    width: 3rem;
                 }
                 &--type {
                     font-weight: 700;
                     margin-right: 8rem;
+                    width: 6rem;
                 }
                 &--name {
                     font-family: $font-heading;

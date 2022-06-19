@@ -10,14 +10,14 @@
           </div>
       </div>
       <div class="sidebar--section">
-          <div class="sidebar--section--item sidebar--section--item-link sidebar--section--item-link-selected">
+          <router-link to="/" active-class="sidebar--section--item-link-selected" class="sidebar--section--item sidebar--section--item-link ">
             <HomeIcon />
             Dashboard
-          </div>
-          <div class="sidebar--section--item sidebar--section--item-link">
+          </router-link>
+          <router-link to="/events" active-class="sidebar--section--item-link-selected" class="sidebar--section--item sidebar--section--item-link">
             <ListIcon />
             Event trackers
-          </div>
+          </router-link>
       </div>
       <div class="sidebar--section">
       </div>

@@ -1,10 +1,26 @@
 <script setup>
     import { ref } from 'vue';
+    import { db } from '../db';
+    import { doc, deleteDoc } from "firebase/firestore";
+
     import Popup from './EventList/Popup.vue'
+import { computed } from '@vue/reactivity';
 
     const props = defineProps({
         events: {
             type: Array,
+            required: true
+        },
+        displayedEvents: {
+            type: Array,
+            required: true
+        },
+        getData: {
+            type: Function,
+            required: true
+        },
+        route: {
+            type: String,
             required: true
         }
     });
@@ -17,18 +33,28 @@
         event.relatedEvents = event.relatedEvents.map(eventId => props.events.find(el => el.id === eventId));
         selectedEvent.value = event;
     };
+
     const unselectEvent = () => {
         selectedEvent.value = null;
+        editMode.value = false;
     };
 
-    const saveEvent = () => {
+    const saveEvent = data => {
+        console.log("Hello")
         editMode.value = false;
     };
     const editEvent = () => {
         editMode.value = true;
     };
-    const deleteEvent = () => {
-        // todo
+    const deleteEvent = async () => {
+        try {
+            await deleteDoc(doc(db, "events", `${selectedEvent.value.id}`));
+            unselectEvent();
+            props.getData();
+        } 
+        catch (error) {
+            console.log(error);    
+        }
     };
 
     const handlePopupClick = e => {
@@ -36,16 +62,26 @@
         e.stopPropagation();
     };
 
-
+    const rootClass = computed(() => props.route === "events" ? "dashboard--event_list dashboard--event_list-events" : "dashboard--event_list");
 </script>
 <template>
-    <Popup :editMode="editMode" :selected-event="selectedEvent" :delete-event="deleteEvent" :save-event="saveEvent" :handle-popup-click="handlePopupClick" :unselect-event="unselectEvent" :edit-event="editEvent" />
-    <div class="dashboard--event_list">
+    <Popup 
+        v-if="selectedEvent"
+        :editMode="editMode" 
+        :selected-event="selectedEvent" 
+        :delete-event="deleteEvent" 
+        :save-event="saveEvent"
+        :handle-popup-click="handlePopupClick" 
+        :unselect-event="unselectEvent" 
+        :edit-event="editEvent" 
+        :events="events"
+    />
+    <div :class="rootClass">
         <div class="dashboard--event_list--title">
             Events
         </div>
         <div class="dashboard--event_list--list">
-            <div v-for="event in events" @click="selectEvent(event.id)" class="dashboard--event_list--list--item">
+            <div v-for="event in displayedEvents" @click="selectEvent(event.id)" class="dashboard--event_list--list--item">
                 <span class="dashboard--event_list--list--item--group">
                     <div class="dashboard--event_list--list--item--id">
                         <span class="dashboard--event_list--list--item--id--label">
@@ -74,8 +110,8 @@
                 </div>
             </div>
         </div>
-        <div class="btn dashboard--event_list--view_all">
+        <router-link v-if="route === 'dashboard'" to="/events" class="btn dashboard--event_list--view_all">
             View all
-        </div>
+        </router-link>
     </div>
 </template>

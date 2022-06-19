@@ -39,6 +39,7 @@
                 font-style: 2.8rem;
                 cursor: pointer;
                 border-left: 5px solid $color-white;
+                text-decoration: none;
 
                 &:not(:last-child) {
                     margin-bottom: 0.5rem;

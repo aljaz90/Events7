@@ -1,8 +1,11 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import router from './router'
 import './sass/main.scss';
 
 const app = createApp(App);
+
+app.use(router);
 
 app.directive("click-outside", {
     beforeMount(el, binding, vnode) {
@@ -11,10 +14,10 @@ app.directive("click-outside", {
                 binding.value(event);
             }
         };
-        document.body.addEventListener("click", el.clickOutsideEvent);
+        document.addEventListener("click", el.clickOutsideEvent);
     },
     unmounted(el) {
-        document.body.removeEventListener("click", el.clickOutsideEvent);
+        document.removeEventListener("click", el.clickOutsideEvent);
     },
 });
 
