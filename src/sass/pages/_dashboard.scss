@@ -7,6 +7,10 @@
         position: relative;
         padding-top: 7rem;
 
+        @include respond(small-desktop) {
+            padding-top: 5rem;
+        }
+
         &--title {
             position: absolute;
             top: 2rem;
@@ -16,6 +20,12 @@
             font-weight: 600;
             opacity: 0.7;
             user-select: none;
+
+            @include respond(small-desktop) {
+                top: 1rem;
+                left: 2rem;
+                font-size: 2rem;
+            }
         }
     }
 
