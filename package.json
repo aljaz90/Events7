@@ -7,8 +7,10 @@
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
+    "firebase": "^9.8.3",
     "vue": "^3.2.36",
-    "vue-ionicons": "^3.0.5"
+    "vue-ionicons": "^3.0.5",
+    "vue-router": "^4.0.16"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
