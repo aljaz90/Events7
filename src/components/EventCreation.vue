@@ -16,7 +16,6 @@ import { computed } from '@vue/reactivity';
     });
 
     const createEvent = async (data, clearFields) => {
-
         let events = await props.getData();
         let ids = events.map(el => el.id);
         if (ids.some(el => el == data.id)) {

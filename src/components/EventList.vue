@@ -1,7 +1,7 @@
 <script setup>
     import { ref } from 'vue';
     import { db } from '../db';
-    import { doc, deleteDoc } from "firebase/firestore";
+    import { doc, deleteDoc, setDoc } from "firebase/firestore";
 
     import Popup from './EventList/Popup.vue'
 import { computed } from '@vue/reactivity';
@@ -39,9 +39,19 @@ import { computed } from '@vue/reactivity';
         editMode.value = false;
     };
 
-    const saveEvent = data => {
-        console.log("Hello")
-        editMode.value = false;
+    const saveEvent = async (data) => {
+        try {
+            await setDoc(doc(db, "events", `${data.id}`), data);
+            let newData = await props.getData();
+
+            data.relatedEvents = data.relatedEvents.map(id => newData.find(el => id == el.id));
+            selectedEvent.value = data;
+
+            editMode.value = false;
+        } 
+        catch (error) {
+            console.log(error);    
+        }
     };
     const editEvent = () => {
         editMode.value = true;

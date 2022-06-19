@@ -36,28 +36,55 @@
                 display: flex;
                 align-items: center;
 
+                @include respond(small-desktop) {
+                   font-size: 1.6rem; 
+                }
+        
                 &:not(:last-child) {
                     margin-right: 3rem;
                     padding-right: 3rem;
                     border-right: 5px solid $color-primary;
+
+                    @include respond(small-desktop) {
+                        margin-right: 1.5rem;
+                        padding-right: 1.5rem;
+                        border-right: 3px solid $color-primary;
+                    }
                 }
 
                 svg {
                     font-size: 2.4rem;
                     margin-right: 1rem;
+
+                    @include respond(small-desktop) {
+                        margin-right: 0.5rem;
+                        font-size: 2rem;
+                    }
                 }
 
                 &-active_trackers svg {
                     font-size: 4.4rem;
+
+                    @include respond(small-desktop) {
+                        font-size: 4rem;
+                    }
                 }                
 
                 &--key {
                     margin-right: 2rem;
+
+                    @include respond(small-desktop) {
+                        margin-right: 1rem;
+                    }
                 }
                 &--value {
                     color: $color-primary;
                     font-weight: 700;
                     font-size: 2.8rem;
+
+                    @include respond(small-desktop) {
+                        font-size: 2rem;
+                    }
                 }
             }
         }

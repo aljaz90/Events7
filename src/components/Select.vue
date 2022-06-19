@@ -16,11 +16,12 @@
             required: true
         },
         defaultOptions: {
-            type: Array
+            type: Array,
+            default: []
         }
     });
 
-    const selectedItems = ref(props.defaultOptions || []);
+    const selectedItems = ref([...props.defaultOptions]);
     const listOpen = ref(false);
 
     const toggleList = () => listOpen.value = !listOpen.value;
@@ -30,6 +31,7 @@
         e.preventDefault();
         e.stopPropagation();
     };
+
     const toggleItem = key => {
         if (selectedItems.value.includes(key)) {
             selectedItems.value = selectedItems.value.filter(el => el !== key);
